@@ -78,14 +78,25 @@ services:
     networks:
       - elastic
 
-volumes:
+volumes: #provide volume
   data01:
     driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /mnt/Elastic/data01
   data02:
     driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /mnt/Elastic/data02
   data03:
     driver: local
-
+    driver_opts:
+      o: bind
+      type: none
+      device: /mnt/Elastic/data03
 networks:
   elastic:
     driver: bridge
