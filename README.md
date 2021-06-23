@@ -29,7 +29,9 @@ git clone https://github.com/ActiveLearningStudio/ActiveLearningStudio-curriki-e
 sudo mkdir -p /home/elastic-data
 ``` 
 
-- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `You have to choose one either the 5-A or 5-B`
+```diff
+- You have to choose one either the 5-A or 5-B
+```
 
 ### 5-A Run the follwing commands to install Elastic Search with Docker-compose  
 
