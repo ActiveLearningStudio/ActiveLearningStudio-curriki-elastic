@@ -1,4 +1,4 @@
-# Elasic Seach Setup 
+# Elasic Seach Setup for Curriki
 
 ![alt text](https://media-exp1.licdn.com/dms/image/C4E0BAQGHz5tVcY2sig/company-logo_200_200/0/1614025520839?e=2159024400&v=beta&t=aRrXcdgxt8I_A6bwCSro-Il6czD2MEZFAnNbfpcYdqQ)
 
@@ -23,8 +23,15 @@ https://docs.docker.com/compose/install/
 ```bash
 git clone https://github.com/ActiveLearningStudio/ActiveLearningStudio-curriki-elastic.git
 ```
+### 4. Make a directory to mount Elastic Data
 
-## Run the follwing commands to install Elastic Search with Docker-compose  
+```bash
+sudo mkdir -p /home/elastic-data
+``` 
+
+- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `You have to choose one either the 5-A or 5-B`
+
+### 5-A Run the follwing commands to install Elastic Search with Docker-compose  
 
 ```bash
 cd ActiveLearningStudio-curriki-elastic
@@ -39,7 +46,7 @@ Enter The ES PORT: (Password you want to setup for ElastciSeach)
 ./deploy_elasticSearch_with_compose.sh
 ```
 
-## Run the follwing commands to install Elastic Search  with Docker Swarm
+### 5-B Run the follwing commands to install Elastic Search  with Docker Swarm
 
 ```bash
 cd ActiveLearningStudio-curriki-elastic
@@ -59,7 +66,7 @@ Enter The ES PORT: (Password you want to setup for ElastciSeach)
 ```
 
 
-## Test Elastci Search Stack
+### 6 Test Elastci Search Stack
 
 Wait for 2 minutes, Let's the container goes healthy then run the follwing command to test that Elastic Search is working or not.
 
