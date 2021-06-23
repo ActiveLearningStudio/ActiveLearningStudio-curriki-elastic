@@ -1,54 +1,58 @@
 # Elasic Seach Setup 
 
-![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fcurriki&psig=AOvVaw2LQU3GTQGSUQkl8Y6wGJYV&ust=1624561218536000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCPjUqKe4rvECFQAAAAAdAAAAABAW)
+![alt text](https://media-exp1.licdn.com/dms/image/C4E0BAQGHz5tVcY2sig/company-logo_200_200/0/1614025520839?e=2159024400&v=beta&t=aRrXcdgxt8I_A6bwCSro-Il6czD2MEZFAnNbfpcYdqQ)
 
 # Prerequisite 
 
-## 1. Minimum Requirements
+### 1. Minimum Requirements
 
-Centos 7
-4GB RAM
-2 VCPUs
+Centos 7  
+4GB RAM  
+2 VCPUs  
 
-## 2. Install Docker
+### 2. Install Docker
 
 https://docs.docker.com/engine/install/centos/
 
-## 2. Install Docker Compose
+### 3. Install Docker Compose
 
 https://docs.docker.com/compose/install/
 
-# Run the follwing commands to install Elastic Search with Docker-compose
+## Run the follwing commands to install Elastic Search with Docker-compose
 
 
 ```bash
 cd ActiveLearningStudio-curriki-elastic
 ```
-When you run the below command this will read the following three values from the terminal.
-Enter The Name of Client/Company: <this could be any name>
-Enter The ES Password: <Password you want to setup for ElastciSeach>
-Enter The ES PORT: <Password you want to setup for ElastciSeach>
+When you run the below command this will read the following three values from the terminal.  
+Enter The Name of Client/Company: (this could be any name)  
+Enter The ES Password: (Password you want to setup for ElastciSeach)  
+Enter The ES PORT: (Password you want to setup for ElastciSeach)  
 
 ```bash
 ./deploy_elasticSearch_with_compose.sh
 ```
 
-# Run the follwing to install Elastic Search with Docker Swarm
+## Run the follwing to install Elastic Search with Docker Swarm
 
 ```bash
 cd ActiveLearningStudio-curriki-elastic
 ```
-When you run the below command this will read the following three values from the terminal.
-Enter The Name of Client/Company: <this could be any name>
-Enter The ES Password: <Password you want to setup for ElastciSeach>
-Enter The ES PORT: <Password you want to setup for ElastciSeach>
+
+```bash
+docker swarm init --advertise-addr (ip_address)
+```
+When you run the below command this will read the following three values from the terminal.  
+Enter The Name of Client/Company: (this could be any name)  
+Enter The ES Password: (Password you want to setup for ElastciSeach)  
+Enter The ES PORT: (Password you want to setup for ElastciSeach)  
 
 ```bash
 ./deploy_elasticSearch_with_swarm.sh
 ```
 
 
-# Test Elastci Search Stack
+## Test Elastci Search Stack
 
 Wait for 2 minutes, Let's the container goes healthy then Run the follwing command to test that elastic Search is working or not.
 
