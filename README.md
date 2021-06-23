@@ -33,7 +33,7 @@ sudo mkdir -p /home/elastic-data
 - You have to choose one option either the 6-A or 6-B
 ```
 
-### 6-A Run the follwing commands to install Elastic Search with Docker-compose  
+### 6-A. Run the follwing commands to install Elastic Search with Docker-compose  
 
 ```bash
 cd ActiveLearningStudio-curriki-elastic
@@ -48,7 +48,7 @@ Enter The ES PORT: (Password you want to setup for ElastciSeach)
 ./deploy_elasticSearch_with_compose.sh
 ```
 
-### 6-B Run the follwing commands to install Elastic Search  with Docker Swarm
+### 6-B. Run the follwing commands to install Elastic Search  with Docker Swarm
 
 ```bash
 cd ActiveLearningStudio-curriki-elastic
@@ -70,10 +70,10 @@ Enter The ES PORT: (Password you want to setup for ElastciSeach)
 ```
 
 
-### 7 Test Elastci Search Stack
+### 7. Test Elastic Search with curl
 
 Wait for 2 minutes, Let's the container goes healthy then run the follwing command to test that Elastic Search is working or not.
 
 ```bash
-curl --user elastic:<ES_PASSWORD> http://localhost:<ES_PORT>
+curl --user elastic:<ES_PASSWORD> http://<ES_MACHINE_IP_ADDRESS>:<ES_PORT>
 ```
