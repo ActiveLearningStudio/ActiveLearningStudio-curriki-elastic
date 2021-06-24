@@ -48,7 +48,7 @@ When you run the below command this will read the following three values from th
   
 Enter The Name of Client/Company: (this could be any name)  
 Enter The ES Password: (Password you want to setup for ElastciSeach)  
-Enter The ES PORT: (Password you want to setup for ElastciSeach)  
+Enter The ES PORT: (Port you want to setup for ElastciSeach)  
 
 ```bash
 ./deploy_elasticSearch_with_compose.sh
@@ -69,7 +69,7 @@ When you run the below command this will read the following three values from th
    
 Enter The Name of Client/Company: (this could be any name)  
 Enter The ES Password: (Password you want to setup for ElastciSeach)  
-Enter The ES PORT: (Password you want to setup for ElastciSeach)  
+Enter The ES PORT: (Port you want to setup for ElastciSeach)  
 
 ```bash
 ./deploy_elasticSearch_with_swarm.sh
