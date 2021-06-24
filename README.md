@@ -1,8 +1,7 @@
-# Elasic Seach Setup for Curriki
 
 ![alt text](https://media-exp1.licdn.com/dms/image/C4E0BAQGHz5tVcY2sig/company-logo_200_200/0/1614025520839?e=2159024400&v=beta&t=aRrXcdgxt8I_A6bwCSro-Il6czD2MEZFAnNbfpcYdqQ)
 
-# Prerequisite 
+# Elasic Search Setup for Curriki
 
 ### 1. Minimum Requirements
 
