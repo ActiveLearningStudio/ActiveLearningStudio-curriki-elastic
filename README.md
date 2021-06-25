@@ -9,31 +9,32 @@
 * 4GB RAM  
 * 2 VCPUs  
 
-### 2. Install Docker
+### 2. Switch to the Super User
+
+```bash
+sudo su 
+``` 
+
+### 3. Install Docker
 
 https://docs.docker.com/engine/install/centos/
 
-### 3. Install Docker Compose
+### 4. Install Docker Compose
 
 https://docs.docker.com/compose/install/
 
-### 4. Install git
+### 5. Install git
 
 ```bash
 sudo yum update -y  
 sudo yum install git -y  
 git --version    
 ``` 
-### 5. Clone the repository
+### 6. Clone the repository
 
 ```bash
 git clone https://github.com/ActiveLearningStudio/ActiveLearningStudio-curriki-elastic.git
 ```
-### 6. Make a directory to mount Elastic Data
-
-```bash
-sudo mkdir -p /home/elastic-data
-``` 
 
 ```diff
 - You have to choose one option either the 7-A or 7-B
@@ -44,7 +45,7 @@ sudo mkdir -p /home/elastic-data
 ```bash
 cd ActiveLearningStudio-curriki-elastic
 ```
-When you run the below command this will read the following three values from the terminal.  
+When you run the below command this will read the following 3 values from the terminal.  
   
 Enter The Name of Client/Company: (this could be any name)  
 Enter The ES Password: (Password you want to setup for ElastciSeach)  
@@ -65,11 +66,12 @@ Intilizae Docker Swarm
 ```bash
 docker swarm init --advertise-addr (ip_address)
 ```
-When you run the below command this will read the following three values from the terminal.  
+When you run the below command this will read the following 4 values from the terminal.  
    
 Enter The Name of Client/Company: (this could be any name)  
 Enter The ES Password: (Password you want to setup for ElastciSeach)  
 Enter The ES PORT: (Port you want to setup for ElastciSeach)  
+Enter The Replicas in Swarm: (1..20)
 
 ```bash
 ./deploy_elasticSearch_with_swarm.sh
