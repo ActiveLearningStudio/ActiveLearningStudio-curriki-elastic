@@ -9,27 +9,28 @@
 * 4GB RAM  
 * 2 VCPUs  
 
-### 2. Switch to the Super User
-
-```bash
-sudo su 
-``` 
-
-### 3. Install Docker
+### 2. Install Docker
 
 https://docs.docker.com/engine/install/centos/
 
-### 4. Install Docker Compose
+### 3. Install Docker Compose
 
 https://docs.docker.com/compose/install/
 
-### 5. Install git
+### 4. Install git
 
 ```bash
 sudo yum update -y  
 sudo yum install git -y  
 git --version    
 ``` 
+
+### 5. Switch to the Super User
+
+```bash
+sudo su 
+``` 
+
 ### 6. Clone the repository
 
 ```bash
@@ -40,7 +41,7 @@ git clone https://github.com/ActiveLearningStudio/ActiveLearningStudio-curriki-e
 - You have to choose one option either the 7-A or 7-B
 ```
 
-### 7-A. Run the follwing commands to install Elastic Search with Docker-compose  
+### 7-A. Run the follwing commands to install Elastic Search on Docker Compose  
 
 ```bash
 cd ActiveLearningStudio-curriki-elastic
@@ -48,14 +49,14 @@ cd ActiveLearningStudio-curriki-elastic
 When you run the below command this will read the following 3 values from the terminal.  
   
 Enter The Name of Client/Company: (this could be any name)  
-Enter The ES Password: (Password you want to setup for ElastciSeach)  
-Enter The ES PORT: (Port you want to setup for ElastciSeach)  
+Enter The ES Password for: (Password you want to setup for ElastciSeach)  
+Enter The ES PORT for: (Port you want to setup for ElastciSeach)  
 
 ```bash
 ./deploy_elasticSearch_with_compose.sh
 ```
 
-### 7-B. Run the follwing commands to install Elastic Search  with Docker Swarm
+### 7-B. Run the follwing commands to install Elastic Search  On Docker Swarm
 
 ```bash
 cd ActiveLearningStudio-curriki-elastic
@@ -69,9 +70,9 @@ docker swarm init --advertise-addr (ip_address)
 When you run the below command this will read the following 4 values from the terminal.  
    
 Enter The Name of Client/Company: (this could be any name)  
-Enter The ES Password: (Password you want to setup for ElastciSeach)  
-Enter The ES PORT: (Port you want to setup for ElastciSeach)  
-Enter The Replicas in Swarm: (1..20)
+Enter The ES Password for: (Password you want to setup for ElastciSeach)  
+Enter The ES PORT for: (Port you want to setup for ElastciSeach)  
+Enter The Replicas in Swarm for: (1..20)
 
 ```bash
 ./deploy_elasticSearch_with_swarm.sh
