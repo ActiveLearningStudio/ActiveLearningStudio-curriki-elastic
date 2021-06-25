@@ -11,17 +11,17 @@ else
   echo "Directory $ES_ELASTIC_VOLUME_PATH created to mount your ElasticSearch Data"    
 fi
 
-echo ' Enter The Name of client:' 
+echo ' Enter The Name of Client/Company:' 
 read ES_CLIENT_NAME
 
-echo ' Enter The ES Password for client:' $ES_CLIENT_NAME
+echo ' Enter The ES Password for :' $ES_CLIENT_NAME
 read ES_ELASTIC_PASSWORD
 
 
-echo ' Enter The ES PORT for client:' $ES_CLIENT_NAME
+echo ' Enter The ES PORT for:' $ES_CLIENT_NAME
 read ES_ELASTIC_PORT
 
-echo ' Enter The Replicas in Swarm for client:' $ES_CLIENT_NAME
+echo ' Enter The Replicas in Swarm for:' $ES_CLIENT_NAME
 read ES_REPLICAS
 
 

@@ -2,14 +2,23 @@
 
 ES_ELASTIC_VOLUME_PATH=/home/elastic-data
 
+
+if [[ -d $ES_ELASTIC_VOLUME_PATH ]]
+then
+    echo "$ES_ELASTIC_VOLUME_PATH  Directory already exists"
+else
+  mkdir -p $ES_ELASTIC_VOLUME_PATH
+  echo "Directory $ES_ELASTIC_VOLUME_PATH created to mount your ElasticSearch Data"    
+fi
+
 echo ' Enter The Name of Client/Company:' 
 read ES_CLIENT_NAME
 
-echo ' Enter The ES Password:' $ES_CLIENT_NAME
+echo ' Enter The ES Password for:' $ES_CLIENT_NAME
 read ES_ELASTIC_PASSWORD
 
 
-echo ' Enter The ES PORT:' $ES_CLIENT_NAME
+echo ' Enter The ES PORT for:' $ES_CLIENT_NAME
 read ES_ELASTIC_PORT
 
 
