@@ -30,6 +30,7 @@ services:
     container_name: ${ES_CLIENT_NAME}-es
     environment:
       - node.name=node-${ES_CLIENT_NAME}
+      - node.max_local_storage_nodes=20
       - cluster.name=es-${ES_CLIENT_NAME}-cluster
       - discovery.type=single-node
       - bootstrap.memory_lock=true
