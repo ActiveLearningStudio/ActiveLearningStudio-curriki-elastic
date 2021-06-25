@@ -1,6 +1,15 @@
 #!/bin/bash
 
-ES_ELASTIC_VOLUME_PATH=/home/elastic-data
+ES_ELASTIC_VOLUME_PATH=/home/elastic-data/
+
+
+if [[ -d $ES_ELASTIC_VOLUME_PATH ]]
+then
+    echo "$ES_ELASTIC_VOLUME_PATH  Directory already exists"
+else
+  mkdir -p $ES_ELASTIC_VOLUME_PATH
+  echo "Directory $ES_ELASTIC_VOLUME_PATH created to mount your ElasticSearch Data"    
+fi
 
 echo ' Enter The Name of client:' 
 read ES_CLIENT_NAME
@@ -12,14 +21,17 @@ read ES_ELASTIC_PASSWORD
 echo ' Enter The ES PORT for client:' $ES_CLIENT_NAME
 read ES_ELASTIC_PORT
 
+echo ' Enter The Replicas in Swarm for client:' $ES_CLIENT_NAME
+read ES_REPLICAS
 
-echo ' Create a Volume for client:' $ES_CLIENT_NAME
 
-sudo mkdir -p $ES_ELASTIC_VOLUME_PATH/$ES_CLIENT_NAME
+echo ' Creating a Volume for client:' $ES_CLIENT_NAME
 
-echo ' Change the permissions of newly created volume for:' $ES_CLIENT_NAME
+mkdir -p $ES_ELASTIC_VOLUME_PATH/$ES_CLIENT_NAME
 
-sudo chown -R 1000:1000  $ES_ELASTIC_VOLUME_PATH
+echo ' Changing the permissions of newly created volume for:' $ES_CLIENT_NAME
+
+chown -R 1000:1000  $ES_ELASTIC_VOLUME_PATH
 
 
 cat << EOF > docker-compose-swarm-$ES_CLIENT_NAME.yaml
@@ -30,6 +42,7 @@ services:
     container_name: ${ES_CLIENT_NAME}-es
     environment:
       - node.name=node-${ES_CLIENT_NAME}
+      - node.max_local_storage_nodes=20
       - cluster.name=es-${ES_CLIENT_NAME}-cluster
       - discovery.type=single-node
       - bootstrap.memory_lock=true
@@ -45,7 +58,7 @@ services:
     ports:
       - ${ES_ELASTIC_PORT}:9200
     deploy:
-      replicas: 1
+      replicas: ${ES_REPLICAS}
       update_config:
         parallelism: 1
         delay: 10s
