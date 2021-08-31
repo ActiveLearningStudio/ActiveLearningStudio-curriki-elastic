@@ -1,27 +1,26 @@
 version: '3'
 services:
-  es01:
+  currikiprod-elastic:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.11.1
-    container_name: es01
+    container_name: currikiprod-elastic
     environment:
-      - node.name=es01
+      - node.name=currikiprod-elastic
       - cluster.name=es-docker-cluster
-      - discovery.seed_hosts=es02,es03
-      - cluster.initial_master_nodes=es01 #,es02,es03
+      - discovery.type=single-node
       - bootstrap.memory_lock=true
       - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
       - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
-      - xpack.security.enabled=$ELASTIC_SECURITY
+      - xpack.security.enabled=true
     ulimits:
       memlock:
         soft: -1
         hard: -1
     volumes:
-      - data01:/usr/share/elasticsearch/data
+      - currikiprod-elasticsearch:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
     networks:
-      - elastic
+      - currikiprod-laravel
 
 #   es02:
 #     image: docker.elastic.co/elasticsearch/elasticsearch:7.11.1
@@ -65,38 +64,26 @@ services:
 #     networks:
 #       - elastic
 
-  kib01:
-    image: docker.elastic.co/kibana/kibana:7.11.1
-    container_name: kib01
-    ports:
-      - 5601:5601
-    environment:
-      ELASTICSEARCH_URL: http://es01:9200
-      ELASTICSEARCH_HOSTS: '["http://es01:9200"]'
-      ELASTICSEARCH_USERNAME: elastic
-      ELASTICSEARCH_PASSWORD: ${ELASTIC_PASSWORD}
-    networks:
-      - elastic
+#   kib01:
+#     image: docker.elastic.co/kibana/kibana:7.11.1
+#     container_name: kib01
+#     ports:
+#       - 5601:5601
+#     environment:
+#       ELASTICSEARCH_URL: http://es01:9200
+#       ELASTICSEARCH_HOSTS: '["http://es01:9200"]'
+#       ELASTICSEARCH_USERNAME: elastic
+#       ELASTICSEARCH_PASSWORD: ${ELASTIC_PASSWORD}
+#     networks:
+#       - elastic
 
 volumes: #provide volume
-  data01:
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: /mnt/Elastic/data01
-#   data02:
-#     driver: local
-#     driver_opts:
-#       o: bind
-#       type: none
-#       device: /mnt/Elastic/data02
-#   data03:
-#     driver: local
-#     driver_opts:
-#       o: bind
-#       type: none
-#       device: /mnt/Elastic/data03
+  currikiprod-elasticsearch:
+      driver: local
+      driver_opts:
+        o: bind
+        type: none
+        device: /mnt/DBData/currikiprod-elasticsearch
 networks:
   elastic:
     driver: bridge
